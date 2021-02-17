@@ -8,6 +8,8 @@ val silencerVersion = "1.7.0"
 lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
   .settings(
+    publishMavenStyle                := true,
+    publishTo                        := Some("PBD-3014 Spike Snapshots" at "s3://pbd-3014-spike/snapshots"),
     majorVersion                     := 0,
     scalaVersion                     := "2.12.12",
     libraryDependencies              ++= AppDependencies.compile ++ AppDependencies.test,
